@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 
 function Login() {
     const navigate = useNavigate();
+    const [loading, setLoading] = useState(false);
 
   const [formData, setFormData] = useState({
     email: "",
@@ -21,6 +22,7 @@ function Login() {
 
   const handleSubmit = async  (e) => {
     e.preventDefault();
+     setLoading(true);
     try {
       const res = await api.post("/auth/login", formData);
 
@@ -68,7 +70,9 @@ function Login() {
           />
         </div>
 
-        <button type="submit">Login</button>
+      <button type="submit" disabled={loading}>
+  {loading ? "Loading..." : "Login"}
+</button>
 
 
         <div className="SignUp">

@@ -76,6 +76,7 @@ body {
   border: 1px solid #ffffff;
   border-radius: 10px;
     background: transparent;
+  color: white;
 }
 
 .login-box button {

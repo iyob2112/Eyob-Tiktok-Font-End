@@ -5,7 +5,7 @@ import api from "../services/api";
 
 function Signup() {
   const navigate = useNavigate();
-
+const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -24,11 +24,11 @@ function Signup() {
 
   const handleSubmit =async  (e) => {
     e.preventDefault();
-
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match");
       return;
     }
+    setLoading(true);
     const payload = {
     fullname: `${formData.firstName} ${formData.lastName}`,
     email: formData.email,
@@ -43,10 +43,11 @@ function Signup() {
     navigate("/");
   } catch (error) {
     alert(error.response?.data?.message);
+  window.location.reload();
+
   }
     console.log(formData);
 
-    navigate("/");
   };
 
   return (
@@ -127,7 +128,9 @@ function Signup() {
           />
         </div>
 
-        <button type="submit">Sign Up</button>
+        <button type="submit" disabled={loading}>
+  {loading ? "Creating..." : "Sign Up"}
+</button>
 
         <div className="SignUp">
           <p>Already have an account?</p>
