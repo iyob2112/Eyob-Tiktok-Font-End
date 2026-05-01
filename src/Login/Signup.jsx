@@ -5,7 +5,7 @@ import api from "../services/api";
 
 function Signup() {
   const navigate = useNavigate();
-const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(false);
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -22,7 +22,7 @@ const [loading, setLoading] = useState(false);
     });
   };
 
-  const handleSubmit =async  (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
       alert("Passwords do not match");
@@ -30,21 +30,29 @@ const [loading, setLoading] = useState(false);
     }
     setLoading(true);
     const payload = {
-    fullname: `${formData.firstName} ${formData.lastName}`,
-    email: formData.email,
-    phone: formData.phone,
-    password: formData.password,
-  };
+      fullname: `${formData.firstName} ${formData.lastName}`,
+      email: formData.email,
+      phone: formData.phone,
+      password: formData.password,
+    };
 
- try {
-    await api.post("/auth/signup", payload);
+    try {
+      await api.post("/auth/signup", payload);
 
-    alert("Signup successful");
-    navigate("/");
-  } catch (error) {
-    alert(error.response?.data?.message);
-  window.location.reload();
-
+      alert("Signup successful");
+      navigate("/");
+    } catch (error) {
+      alert(error.response?.data?.message);
+      setFormData({
+        firstName: "",
+        lastName: "",
+        email: "",
+        phone: "",
+        password: "",
+        confirmPassword: "",
+      });
+    }finally {
+    setLoading(false); // ✅ THIS FIXES YOUR BUTTON
   }
     console.log(formData);
 
@@ -128,9 +136,12 @@ const [loading, setLoading] = useState(false);
           />
         </div>
 
-        <button type="submit" disabled={loading}>
-  {loading ? "Creating..." : "Sign Up"}
-</button>
+        <button
+          type="submit"
+          disabled={loading || !formData.email || !formData.password}
+        >
+          {loading ? "Creating..." : "Sign Up"}
+        </button>
 
         <div className="SignUp">
           <p>Already have an account?</p>
