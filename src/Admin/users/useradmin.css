@@ -3,6 +3,7 @@
   overflow-y: auto; /* Enable scrolling */
   padding: 20px 0;
   width: 100%;
+  display: block;
   
   /* Custom scrollbar for a pro look */
   scrollbar-width: thin;

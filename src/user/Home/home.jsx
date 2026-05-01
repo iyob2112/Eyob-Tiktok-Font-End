@@ -80,19 +80,19 @@ const HomePage = () => {
                             {allTasks[activeTab].map((task) => (
                                 <div key={task.id}
                                     className="glass-card"
-                                  onClick={() =>
-  navigate('/task-details', {
-    state: {
-      category: task.category,
- taskType:
-  task.name === "comment"
-    ? "Comment"
-    : task.name === "Like video"
-    ? "Like Video"
-    : "Follow Account"
-    }
-  })
-}>
+                                    onClick={() =>
+                                        navigate('/task-details', {
+                                            state: {
+                                                category: task.category,
+                                                taskType:
+                                                    task.name === "comment"
+                                                        ? "Comment"
+                                                        : task.name === "Like video"
+                                                            ? "Like Video"
+                                                            : "Follow Account"
+                                            }
+                                        })
+                                    }>
                                     <div className="card-shine"></div>
                                     <div className="card-top">
                                         <span

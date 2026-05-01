@@ -1,3 +1,4 @@
+
 :root {
   --glass-bg: rgba(255, 255, 255, 0.05);
   --glass-border: rgba(255, 255, 255, 0.1);
@@ -7,38 +8,37 @@
 }
 
 .app-viewport0 {
-  background: #000000;
- height: 100vh;
+  background: #000;
+   height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden; 
-  padding-bottom: 70px;
-  justify-content: center;
-  padding: 0px; /* Smaller padding for mobile */
+  justify-content: flex-start;
+  padding-bottom: 70px; /* BottomBar space */
   font-family: 'Inter', sans-serif;
   color: #fff;
   box-sizing: border-box;
+    overflow: hidden;
 }
 .app-viewport {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  overflow: hidden; /* stops page scroll */
+
   padding-bottom: 70px; /* BottomBar space */
   box-sizing: border-box;
 }
 .glass-container {
-  background: var(--glass-bg);
-  backdrop-filter: blur(15px);
-  border: 1px solid var(--glass-border);
+    flex: 1;
+    overflow-y: auto;
   width: 100%;
-  max-width: 450px; /* Constraints to phone width */
-  border-radius: 25px;
-  display: flex;
-  flex-direction: column; /* Stack vertically for mobile */
-  height: fit-content;
-  margin-bottom: 80px; /* Space for BottomBar */
-  overflow: hidden;
+   padding: 20px 0;
+   display: block;
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 20px;
+   /* Custom scrollbar for a pro look */
+  scrollbar-width: thin;
+  scrollbar-color: #64696b transparent;
 }
 
 /* Hide Sidebar on Mobile or turn into Top Tabs */
@@ -81,7 +81,10 @@
 
 /* Content Area */
 .content-area {
+  flex: 1;
+  overflow-y: auto;
   padding: 20px;
+  /* padding-bottom: 90px; space for BottomBar */
 }
 
 .main-header {
@@ -112,7 +115,7 @@
 .task-grid {
   display: flex;
   flex-direction: column;
-  gap: 15px;
+  gap: 12px;
 }
 
 .glass-card {
@@ -212,4 +215,25 @@
     margin-bottom: 20px;
    
 
+}
+@media (max-width: 600px) {
+  .side-nav {
+    overflow-x: auto;
+    gap: 10px;
+    justify-content: flex-start;
+  }
+
+  .nav-item {
+    font-size: 10px;
+    padding: 6px 10px;
+  }
+}
+.main-header h1 {
+  font-size: 18px;
+}
+
+@media (min-width: 400px) {
+  .main-header h1 {
+    font-size: 22px;
+  }
 }
