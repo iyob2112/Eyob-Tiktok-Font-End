@@ -1,0 +1,110 @@
+.app-viewport {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* stops page scroll */
+  padding-bottom: 70px; /* BottomBar space */
+  box-sizing: border-box;
+}
+
+.h1 {
+  text-align: center;
+  margin-bottom: 20px;
+    flex-shrink: 0;
+
+}
+.h3-W {
+  color: white;
+}
+/* FIX: page should not scroll */
+.admin-page {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* IMPORTANT */
+}
+/* LIST */
+.list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 600px;
+  /* margin: auto; */
+}
+
+/* CARD */
+.card {
+  background: rgba(255, 255, 255, 0.06);
+  padding: 15px;
+  border-radius: 12px;
+
+  display: flex;
+  justify-content: space-between;
+  /* align-items: center; */
+
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* FORM */
+.form {
+  max-width: 600px;
+  margin: auto;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+input {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  border: none;
+}
+
+/* BUTTONS */
+button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn {
+  background: #38bdf8;
+  color: black;
+}
+
+.danger {
+  background: red;
+  color: white;
+}
+
+.approve {
+  background: green;
+  color: white;
+  width: 100%;
+}
+
+.reject {
+  background: red;
+  color: white;
+  width: 100%;
+}
+
+.btn-group {
+  display: flex;
+  flex-direction: row;
+/* background: linear-gradient(135deg, #38bdf8, #0ea5e9); */
+  color: black;
+
+  /* padding: 8px 14px; */
+  border-radius: 10px;
+
+  font-weight: 500;
+width: 100%;
+  /* height: 100%; */
+  transition: 0.2s ease;
+  /* margin-bottom: 30px; */
+}

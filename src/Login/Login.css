@@ -1,0 +1,118 @@
+body {
+  /* background-image: url("../assets/img1.jpg"); */
+    background: radial-gradient(circle at top left, #1e293b, #020617);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  height: 100vh;
+  backdrop-filter: blur(15px);
+  
+}
+.login-container {
+    background-image: url("../assets/img1.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+}
+
+.login-box {
+
+  margin: 0 30px;
+   position: relative;
+  z-index: 1;
+
+  width: 320px;
+  padding: 20px;
+  border-radius: 18px;
+
+  /* main glass */
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(18px);
+
+  /* border glow */
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-bottom: 2px solid rgba(255, 255, 255, 0.9);
+  border-top: 2px solid rgba(255, 255, 255, 0.9);
+
+  /* depth shadow */
+  box-shadow: 
+    0 8px 32px rgba(0, 0, 0, 0.35),
+    inset 20px 20px 20px rgba(253, 253, 253, 0.1);
+
+
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  /* smooth animation */
+  transition: 0.3s ease;
+}
+
+.login-box h1  {
+  text-align: center;
+  /* margin-bottom: ; */
+  margin: 20px  0 20px 0;
+
+    color: white;
+}
+.login-box h2  {
+
+  margin: 0  0 0px 0;
+
+}
+
+.login-box input {
+  width: 90%;
+  padding: 12px;
+  margin: 0px 0;
+  border: 1px solid #ffffff;
+  border-radius: 10px;
+    background: transparent;
+}
+
+.login-box button {
+  width: 100%;
+  padding: 12px;
+   background: linear-gradient(to right, #000000, #cc00ff);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+    border: 1px solid #ffffff;
+}
+.Email{
+    padding: 0;
+    text-align: start;
+    color: white;
+    margin: 0;
+    font-size: 12px;
+}
+.Password{
+     font-size: 12px;
+    margin: 0;
+    padding: 0;
+    text-align: start;
+    color: white;
+}
+.SignUp{
+    margin-top: 50px;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    gap: 10px;
+}.SignUp a{
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}

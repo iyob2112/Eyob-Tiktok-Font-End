@@ -1,0 +1,39 @@
+.edit-page {
+  width: 100%;
+  max-width: 500px;
+  /* margin: auto; */
+  display: block;
+  justify-content: start;
+  text-align: start;
+}
+
+.edit-card {
+  background: rgba(255, 255, 255, 0.08);
+  padding: 20px;
+  border-radius: 16px;
+  backdrop-filter: blur(15px);
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.edit-card input {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+.save-btn {
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+}
+
+.back-btn {
+  margin-bottom: 20px;
+}

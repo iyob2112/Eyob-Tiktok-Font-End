@@ -1,0 +1,44 @@
+.add-task-page {
+  width: 100%;
+  max-width: 500px;
+  /* margin: auto; */
+  color: white;
+  text-align: start;
+}
+
+.task-form {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  background: rgba(255, 255, 255, 0.06);
+  padding: 20px;
+  border-radius: 16px;
+  backdrop-filter: blur(15px);
+}
+
+.task-form label {
+  font-size: 14px;
+  color: #cbd5e1;
+}
+
+.task-form input,
+.task-form select {
+  padding: 12px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: black;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.back-btn {
+  margin-bottom: 20px;
+}

@@ -1,0 +1,141 @@
+.app-viewport1 {
+  background: #000000;
+  height: 100vh;
+  display: flex;
+   flex-direction: column;
+  justify-content: center;
+  padding: 15px; /* Smaller padding for mobile */
+  font-family: 'Inter', sans-serif;
+  color: #fff;
+  margin: 0;
+  overflow: hidden;
+   padding-bottom: 70px;
+    box-sizing: border-box;
+}
+
+.admin-page{
+  background-color: transparent;
+
+  width: 100%;
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+
+}
+
+/* TITLE */
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+/* LIST */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 0px;
+}
+
+
+
+
+.card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* USER INFO */
+.card h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.card p {
+  margin: 3px 0;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+
+/* BUTTON */
+.btn {
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: black;
+
+  padding: 8px 14px;
+  border-radius: 10px;
+
+  font-weight: 500;
+width: 100%;
+  height: 100%;
+  transition: 0.2s ease;
+   
+}
+.addtask{
+   background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: black;
+
+  padding: 8px 14px;
+  border-radius: 10px;
+
+  font-weight: 500;
+width: 100%;
+  /* height: 100%; */
+  transition: 0.2s ease;
+  margin-bottom: 30px;
+   
+}
+.actions{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+   width: 100%;
+   gap: 10px;
+}
+.danger {
+  background: linear-gradient(135deg, #f87171, #ef4444);
+  color: white;
+  padding: 8px 14px;
+  border-radius: 10px;
+  font-weight: 500;
+  width: 100%;
+  height: 100%;
+  transition: 0.2s ease;
+}
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* OPTIONAL BADGE STYLE (coins) */
+.card p:last-child {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+/* MOBILE FIX */
+@media (max-width: 600px) {
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+.list1{
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  text-align: start;
+}

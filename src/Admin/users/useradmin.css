@@ -1,0 +1,141 @@
+.admin-page {
+  flex: 1;
+  overflow-y: auto; /* Enable scrolling */
+  padding: 20px 0;
+  width: 100%;
+  
+  /* Custom scrollbar for a pro look */
+  scrollbar-width: thin;
+  scrollbar-color: #64696b transparent;
+}
+.admin-page::-webkit-scrollbar {
+  width: 5px;
+}
+
+.admin-page::-webkit-scrollbar-thumb {
+  background: linear-gradient(transparent, #38bdf8, transparent);
+  border-radius: 10px;
+}
+.h3-U {
+  color: white;
+}
+.app-viewport {
+  height: 100vh;
+  background: #000000;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden; /* stops page scroll */
+  padding-bottom: 70px; /* BottomBar space */
+  box-sizing: border-box;
+}
+
+/* TITLE */
+h2 {
+  text-align: center;
+  margin-bottom: 25px;
+  font-size: 24px;
+  letter-spacing: 1px;
+}
+
+/* LIST */
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 0px;
+}
+
+/* CARD (upgraded glass style) */
+.card {
+  width: 90%;
+  background: rgba(255, 255, 255, 0.06);
+  padding: 16px;
+  border-radius: 16px;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(15px);
+
+  transition: 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-3px);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* USER INFO */
+.card h3 {
+  margin: 0;
+  font-size: 16px;
+}
+
+.card p {
+  margin: 3px 0;
+  font-size: 13px;
+  color: #cbd5e1;
+}
+
+/* BUTTON */
+.btn {
+  background: linear-gradient(135deg, #38bdf8, #0ea5e9);
+  color: black;
+
+  padding: 8px 14px;
+  border-radius: 10px;
+
+  font-weight: 500;
+
+  transition: 0.2s ease;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+}
+
+/* OPTIONAL BADGE STYLE (coins) */
+.card p:last-child {
+  color: #ffd700;
+  font-weight: bold;
+}
+
+/* MOBILE FIX */
+@media (max-width: 600px) {
+  .card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+.btn-group {
+  display: flex;
+  gap: 10px;
+}
+
+.delete-btn {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+  color: white;
+width: 100%;
+  padding: 8px 14px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+
+  font-weight: 500;
+  transition: 0.2s ease;
+}
+
+.delete-btn:hover {
+  transform: scale(1.05);
+}
