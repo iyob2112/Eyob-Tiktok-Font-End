@@ -104,7 +104,37 @@ h2 {
   outline: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
+.input-group-UserEdit{
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.input-group-UserEdit label {
+  color: white;
+  font-weight: 600;
 
+}
+.input-group-UserEdit select {
+  padding: 14px;
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #f8fafc;
+  font-size: 14px;
+  outline: none;
+  width: 100%;
+
+  /* IMPORTANT FIX */
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+
+  cursor: pointer;
+}
+.input-group-UserEdit select option {
+  background: #0f172a;
+  color: white;
+}
 /* Input Focus Glow */
 .edit-card input:focus {
   background: rgba(255, 255, 255, 0.08);

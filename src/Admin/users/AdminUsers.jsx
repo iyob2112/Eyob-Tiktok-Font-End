@@ -67,6 +67,7 @@ const AdminUsers = () => {
                           email: u.email,
                           coins: u.coins,
                           phone: u.phone,
+                          role: u.role
                         },
                       })
                     }

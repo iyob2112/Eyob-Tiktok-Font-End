@@ -18,31 +18,88 @@ import AdminWithdraw from "./Admin/withdraws/AdminWithdraw";
 import UserEdit from "./Admin/users/UserEdit";
 import AddTaskPage from "./Admin/tasks/AddTaskPage";
 import EditTaskPage from "./Admin/tasks/EditTaskPage";
+import ProtectedRoute from "./services/ProtectedRoute";
+import AdminRoute from "./services/AdminRoute";
+
 function App() {
-   return (
+  return (
     <BrowserRouter>
       <Routes>
-         {/* USER ROUTES */}
+
+        {/* PUBLIC */}
         <Route path="/" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
-        <Route path="/UserProfile" element={<UserProfile />} />
-        <Route path="/withdraw" element={<Withdraw />} />
-        <Route path="/home" element={<Home />} />
-         <Route path="/task-details" element={<TaskDetails />} />
-         <Route path="/instruction" element={<TaskInstruction />} />
 
+        {/* USER PROTECTED */}
+        <Route path="/home" element={
+          <ProtectedRoute>
+            <Home />
+          </ProtectedRoute>
+        } />
 
+        <Route path="/UserProfile" element={
+          <ProtectedRoute>
+            <UserProfile />
+          </ProtectedRoute>
+        } />
 
-           {/* ADMIN ROUTES */}
-        <Route path="/admin/users" element={<AdminUsers />} />
-        <Route path="/admin/tasks" element={<AdminTasks />} />
-        <Route path="/admin/withdraws" element={<AdminWithdraw />} />
-        <Route path="/admin/user-edit" element={<UserEdit />} />
-        <Route path="/admin/add-task" element={<AddTaskPage />} />
-        <Route path="/admin/edit-task" element={<EditTaskPage />} />
+        <Route path="/withdraw" element={
+          <ProtectedRoute>
+            <Withdraw />
+          </ProtectedRoute>
+        } />
+
+        <Route path="/task-details" element={
+          <ProtectedRoute>
+            <TaskDetails />
+          </ProtectedRoute>
+        } />
+
+        <Route path="/instruction" element={
+          <ProtectedRoute>
+            <TaskInstruction />
+          </ProtectedRoute>
+        } />
+
+        {/* ADMIN PROTECTED */}
+        <Route path="/admin/users" element={
+          <AdminRoute>
+            <AdminUsers />
+          </AdminRoute>
+        } />
+
+        <Route path="/admin/tasks" element={
+          <AdminRoute>
+            <AdminTasks />
+          </AdminRoute>
+        } />
+
+        <Route path="/admin/withdraws" element={
+          <AdminRoute>
+            <AdminWithdraw />
+          </AdminRoute>
+        } />
+
+        <Route path="/admin/user-edit" element={
+          <AdminRoute>
+            <UserEdit />
+          </AdminRoute>
+        } />
+
+        <Route path="/admin/add-task" element={
+          <AdminRoute>
+            <AddTaskPage />
+          </AdminRoute>
+        } />
+
+        <Route path="/admin/edit-task" element={
+          <AdminRoute>
+            <EditTaskPage />
+          </AdminRoute>
+        } />
+
       </Routes>
     </BrowserRouter>
   );
 }
-
 export default App;

@@ -12,6 +12,8 @@ const UserEdit = () => {
   const [coins, setCoins] = useState(state?.coins || 0);
   const [phone, setPhone] = useState(state?.phone || "");
 
+    const [roleType, setRoleType] = useState(state?.role || "USER");
+
   const handleSave = async () => {
     try {
       const data = {
@@ -19,6 +21,7 @@ const UserEdit = () => {
         email,
         coins: Number(coins),
         phone,
+        role: roleType
       };
 
       await api.put(`/users/${state.id}`, data);
@@ -80,6 +83,21 @@ const UserEdit = () => {
               onChange={(e) => setPhone(e.target.value)}
             />
           </div>
+
+
+        <div className="input-group-UserEdit">
+            <label>Role</label>
+            <select
+              value={roleType}
+              onChange={(e) => setRoleType(e.target.value)}
+              
+            >
+              <option>admin</option>
+              <option>user</option>
+            </select>
+          </div>
+      
+            
 
           <button className="save-btn" onClick={handleSave}>
             Save Changes
