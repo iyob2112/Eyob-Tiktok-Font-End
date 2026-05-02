@@ -44,35 +44,44 @@ const AdminWithdraw = () => {
 
   return (
     <>
-      <div className="app-viewport">
-        <div className="admin-page">
-          <h2 className="h-1">Withdraw Requests</h2>
+  <div className="app-viewport">
+  <div className="admin-page">
+    <h2 className="h-1">Withdraw Requests</h2>
 
-          <div className="list">
-            {requests.map((r) => (
-              <div key={r._id} className="card">
-                <div className="list1">
-                  <h3 className="h3-W">{r.userId?.fullname}</h3>
-                  <p>{r.userId?.email}</p>
-                  <p>Account: {r.accountNumber}</p>
-                  <p>💰 {r.amount} Birr</p>
-                  <p>Status: {r.status || "pending"}</p>
-                </div>
-
-                <div className="btn-group">
-                  <button className="approve" onClick={() => approve(r._id)}>
-                    Approve
-                  </button>
-
-                  <button className="reject" onClick={() => reject(r._id)}>
-                    Reject
-                  </button>
-                </div>
+    <div className="list">
+      {requests.length === 0 ? (
+        <p style={{ textAlign: "center", marginTop: "20px", color: "#64748b" }}>No pending requests</p>
+      ) : (
+        requests.map((r) => (
+          <div key={r._id} className="card">
+            <div className="list1">
+              <h3 className="h3-W">{r.userId?.fullname || "Unknown User"}</h3>
+              <p className="email-text">{r.userId?.email}</p>
+              <div className="info-row">
+                <span>Account:</span>
+                <span className="account-num">{r.accountNumber}</span>
               </div>
-            ))}
+              <p className="amount-text"> Birr {r.amount}</p>
+              <span className={`status-badge ${r.status || "pending"}`}>
+                {r.status || "pending"}
+              </span>
+            </div>
+
+            <div className="btn-group-withdraw">
+              <button className="approve-btn" onClick={() => approve(r._id)}>
+                Approve
+              </button>
+
+              <button className="reject-btn" onClick={() => reject(r._id)}>
+                Reject
+              </button>
+            </div>
           </div>
-        </div>
-      </div>
+        ))
+      )}
+    </div>
+  </div>
+</div>
 
       <BottomBar />
     </>

@@ -20,14 +20,10 @@ const AdminTasks = () => {
     fetchTasks();
   }, []);
 
-
   const deleteTask = async (id) => {
-    const confirmDelete = window.confirm("Delete this task?");
-    if (!confirmDelete) return;
-
+    if (!window.confirm("Are you sure you want to delete this task?")) return;
     try {
       await api.delete(`/tasks/${id}`);
-
       setTasks(tasks.filter((t) => t._id !== id));
     } catch (error) {
       alert(error.response?.data?.message || "Delete failed");
@@ -38,56 +34,68 @@ const AdminTasks = () => {
     <>
       <div className="app-viewport1">
         <div className="admin-page">
-          <h2>Task Controller</h2>
+          <h2 className="admin-title">Task Controller</h2>
 
           <button
-            className="addtask"
+            className="addtask-btn"
             onClick={() => navigate("/admin/add-task")}
           >
-            Add Task
+            <span className="plus-icon">+</span> Add New Task
           </button>
 
-          <div className="list">
-            {tasks.map((t) => (
-              <div key={t._id} className="card">
-                <div className="list1">
-                  <h3>{t.category}</h3>
-                  <p>{t.taskType}</p>
-                  <p>{t.link}</p>
-                  <p>🪙 {t.reward}</p>
-                </div>
+          <div className="task-list-wrapper">
+            {tasks.length === 0 ? (
+              <p className="empty-msg">No tasks available. Create one!</p>
+            ) : (
+              tasks.map((t) => (
+                <div key={t._id} className="task-card">
+                  <div className="task-main-info">
+                    <div className="task-category-icon">
+                      {t.category?.charAt(0)}
+                    </div>
+                    
+                    <div className="task-details">
+                      <div className="task-header-row">
+                        <h3 className="cat-name">{t.category}</h3>
+                        <span className="task-badge">{t.taskType}</span>
+                      </div>
+                      <p className="task-url">{t.link}</p>
+                      <div className="task-reward-pill">
+                        🪙 {t.reward} Coins
+                      </div>
+                    </div>
+                  </div>
 
-                <div className="actions">
-                  <button
-                    className="btn danger"
-                    onClick={() => deleteTask(t._id)}
-                  >
-                    Delete
-                  </button>
-
-                  <button
-                    className="btn edit"
-                    onClick={() =>
-                      navigate("/admin/edit-task", {
-                        state: {
-                          id: t._id,
-                          category: t.category,
-                          taskType: t.taskType,
-                          link: t.link,
-                          reward: t.reward,
-                        },
-                      })
-                    }
-                  >
-                    Edit
-                  </button>
+                  <div className="task-actions">
+                    <button
+                      className="edit-task-btn"
+                      onClick={() =>
+                        navigate("/admin/edit-task", {
+                          state: {
+                            id: t._id,
+                            category: t.category,
+                            taskType: t.taskType,
+                            link: t.link,
+                            reward: t.reward,
+                          },
+                        })
+                      }
+                    >
+                      Edit
+                    </button>
+                    <button
+                      className="delete-task-btn"
+                      onClick={() => deleteTask(t._id)}
+                    >
+                      Delete
+                    </button>
+                  </div>
                 </div>
-              </div>
-            ))}
+              ))
+            )}
           </div>
         </div>
       </div>
-
       <BottomBar />
     </>
   );

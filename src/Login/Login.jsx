@@ -34,7 +34,13 @@ function Login() {
       navigate("/home");}
     } catch (error) {
       alert(error.response?.data?.message || "Login failed");
-    }
+      setFormData({
+ email: "",
+    password: "",
+      });
+    }finally {
+    setLoading(false); // ✅ THIS FIXES YOUR BUTTON
+  }
     console.log(formData);
 
     // navigate("/admin/users")
@@ -69,11 +75,21 @@ function Login() {
             required
           />
         </div>
-
+{/* 
       <button type="submit" disabled={loading}>
   {loading ? "Loading..." : "Login"}
-</button>
+</button> */}
 
+<button type="submit" disabled={loading}>
+  {loading ? (
+    <>
+      <div className="spinner"></div>
+      <span>Loading...</span>
+    </>
+  ) : (
+    "Login"
+  )}
+</button>
 
         <div className="SignUp">
           <p>Are You Member?  </p> <a href="/signup"

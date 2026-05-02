@@ -32,7 +32,8 @@ const UserEdit = () => {
 
   return (
     <div className="app-viewport">
-      <div className="edit-page">
+      {/* Container to handle layout within the viewport */}
+      <div className="admin-page"> 
         <button className="back-btn" onClick={() => navigate(-1)}>
           ← Back
         </button>
@@ -40,30 +41,45 @@ const UserEdit = () => {
         <h2>Edit User</h2>
 
         <div className="edit-card">
-          <label>Name</label>
-          <input
-            value={name}
-            onChange={(e) => setName(e.target.value)}
-          />
+          <div className="input-group">
+            <label>Name</label>
+            <input
+              type="text"
+              placeholder="Full Name"
+              value={name}
+              onChange={(e) => setName(e.target.value)}
+            />
+          </div>
 
-          <label>Email</label>
-          <input
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
+          <div className="input-group">
+            <label>Email</label>
+            <input
+              type="email"
+              placeholder="Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+            />
+          </div>
 
-          <label>Coins</label>
-          <input
-            type="number"
-            value={coins}
-            onChange={(e) => setCoins(e.target.value)}
-          />
+          <div className="input-group">
+            <label>Coins (🪙)</label>
+            <input
+              type="number"
+              placeholder="Amount"
+              value={coins}
+              onChange={(e) => setCoins(e.target.value)}
+            />
+          </div>
 
-          <label>Phone</label>
-          <input
-            value={phone}
-            onChange={(e) => setPhone(e.target.value)}
-          />
+          <div className="input-group">
+            <label>Phone Number</label>
+            <input
+              type="text"
+              placeholder="Phone"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
+            />
+          </div>
 
           <button className="save-btn" onClick={handleSave}>
             Save Changes

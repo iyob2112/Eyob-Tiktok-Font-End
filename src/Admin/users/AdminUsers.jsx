@@ -20,19 +20,11 @@ const AdminUsers = () => {
     fetchUsers();
   }, []);
 
-
   const handleDelete = async (id) => {
-    const confirmDelete = window.confirm(
-      "Are you sure you want to delete this user?"
-    );
-
-    if (!confirmDelete) return;
-
+    if (!window.confirm("Are you sure you want to delete this user?")) return;
     try {
       await api.delete(`/users/${id}`);
-
       setUsers(users.filter((user) => user._id !== id));
-
       alert("User deleted successfully");
     } catch (error) {
       alert(error.response?.data?.message || "Delete failed");
@@ -43,47 +35,57 @@ const AdminUsers = () => {
     <>
       <div className="app-viewport">
         <div className="admin-page">
-          <h2>Users</h2>
+          <h2 className="admin-title">User Management</h2>
 
-          <div className="list">
+          <div className="user-list-container">
             {users.map((u) => (
-              <div key={u._id} className="card">
-                <div className="list1">
-                  <h3 className="h3-U">{u.fullname}</h3>
-                  <p>{u.email}</p>
-                  <p>{u.phone}</p>
-                  <p>🪙 {u.coins}</p>
+              <div key={u._id} className="user-card">
+                <div className="user-info-section">
+                  {/* Avatar Circle */}
+                  <div className="user-avatar">
+                    {u.fullname.charAt(0).toUpperCase()}
+                  </div>
+                  
+                  <div className="user-details">
+                    <h3 className="user-name">{u.fullname}</h3>
+                    <p className="user-email">{u.email}</p>
+                    <p className="user-phone">{u.phone || "No phone"}</p>
+                    <div className="user-coin-badge">
+                      <span className="coin-icon">🪙</span> {u.coins} Coins
+                    </div>
+                  </div>
                 </div>
 
-                <button
-                  className="btn"
-                  onClick={() =>
-                    navigate("/admin/user-edit", {
-                      state: {
-                        id: u._id,
-                        name: u.fullname,
-                        email: u.email,
-                        coins: u.coins,
-                        phone: u.phone,
-                      },
-                    })
-                  }
-                >
-                  View / Edit
-                </button>
+                <div className="user-actions">
+                  <button
+                    className="edit-action-btn"
+                    onClick={() =>
+                      navigate("/admin/user-edit", {
+                        state: {
+                          id: u._id,
+                          name: u.fullname,
+                          email: u.email,
+                          coins: u.coins,
+                          phone: u.phone,
+                        },
+                      })
+                    }
+                  >
+                    Edit
+                  </button>
 
-                <button
-                  className="delete-btn"
-                  onClick={() => handleDelete(u._id)}
-                >
-                  Delete
-                </button>
+                  <button
+                    className="delete-action-btn"
+                    onClick={() => handleDelete(u._id)}
+                  >
+                    Delete
+                  </button>
+                </div>
               </div>
             ))}
           </div>
         </div>
       </div>
-
       <BottomBar />
     </>
   );

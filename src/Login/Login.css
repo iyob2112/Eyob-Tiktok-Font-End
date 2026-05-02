@@ -117,3 +117,31 @@ body {
     text-decoration: none;
     font-weight: bold;
 }
+
+
+/* The Spinner Container */
+.spinner {
+  width: 20px;
+  height: 20px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  border-radius: 50%;
+  border-top-color: #fff; /* This creates the 'scrolling' part */
+  animation: spin 1s ease-in-out infinite;
+  display: inline-block;
+}
+
+/* The Spinning Animation */
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Center the spinner inside the button */
+.login-box button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  min-height: 45px; /* Keeps button height consistent when loading */
+}

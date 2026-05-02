@@ -135,13 +135,23 @@ function Signup() {
             required
           />
         </div>
-
+{/* 
         <button
           type="submit"
           disabled={loading || !formData.email || !formData.password}
         >
           {loading ? "Creating..." : "Sign Up"}
-        </button>
+        </button> */}
+        <button type="submit" disabled={loading || !formData.email || !formData.password}>
+  {loading ? (
+    <>
+      <div className="spinner"></div>
+      <span>Loading...</span>
+    </>
+  ) : (
+    "Sign Up"
+  )}
+</button>
 
         <div className="SignUp">
           <p>Already have an account?</p>
